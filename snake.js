@@ -110,6 +110,25 @@ window.addEventListener("keypress", function key(event){
     running = false;
 });
 
+//for arrow keys
+window.addEventListener("keydown", function key(event){
+  // if key is w set direction up
+  var key = event.keyCode;
+  if(direction != -1 && (key == 38))
+    tempdir = 0;
+  //if key is s set direction down
+  else if(direction != 0 && (key == 40))
+    tempdir = -1;
+  // if key is a set direction left
+  else if(direction != 2 && (key == 37))
+    tempdir = 1;
+  // if key is d set direction right
+  else if(direction != 1 && (key == 39))
+    tempdir = 2;
+  if(!running)
+    running = true;
+});
+
 // letting the game run
 function gameLoop(){
   if(running && !gameOver){
